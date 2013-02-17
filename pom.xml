@@ -18,11 +18,12 @@
 			<artifactId>neo4j-server</artifactId>
 			<version>1.4.M02</version>
 		</dependency>
-
+        
+        <!-- http://m2.neo4j.org/content/groups/everything/org/neo4j/neo4j-spatial/ -->
 		<dependency>
 			<groupId>org.neo4j</groupId>
 			<artifactId>neo4j-spatial</artifactId>
-			<version>0.6-SNAPSHOT</version>
+			<version>0.6</version>
 		</dependency>
 
 		<dependency>
@@ -94,17 +95,11 @@
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>default-cli</id>
+						<id>install</id>
+						<phase>install</phase>
 						<goals>
-							<goal>copy-dependencies</goal>
+							<goal>sources</goal>
 						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target/plugins</outputDirectory>
-							<overWriteReleases>false</overWriteReleases>
-							<overWriteSnapshots>false</overWriteSnapshots>
-							<overWriteIfNewer>true</overWriteIfNewer>
-							<excludeArtifactIds>neo4j-server</excludeArtifactIds>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
